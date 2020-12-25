@@ -101,6 +101,11 @@ func (im iconMap) get(f *file) string {
 		key = "*" + filepath.Ext(f.Name())
 	}
 
+	val, ok := im["*" + filepath.Ext(f.Name())]
+	if key == "ex" && ok {
+	    return val
+	}
+
 	if val, ok := im[key]; ok {
 		return val
 	}
